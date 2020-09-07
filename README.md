@@ -3,6 +3,7 @@
 * The iOS Application was delivering users to navigate through different screens such as Meals List, Order Pickup, Order History and a chance to win Scratch Card.
 * Application was purely built on native iOS platform integrated with live tracking of user's location.
 * Only after the user makes an order, the live location is tracked and as soon as, user is within 100 metres of range, the order would be prepared.
+* Users were allowed to participate in a contest, running from evening 6 to 7 daily, and grab a chance to win upto 50% discount on the following order.
 * Meal List is loaded to JSON file, which is fetched from Firebase, for first time when application is opened and from that point data related to meal is loaded  from JSON rather than Firestore database.
   
 Note: Firebase is used for authentication, database and storage purposes.
