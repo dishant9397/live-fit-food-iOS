@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Meal" representedClassName="Meal" syncable="YES">
+        <attribute name="calorieCount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="descriptions" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="order" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order" inverseName="meal" inverseEntity="Order"/>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="discount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="subTotal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tax" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tip" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="meal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="order" inverseEntity="Meal"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="order" inverseEntity="User"/>
+    </entity>
+    <entity name="ScratchCard" representedClassName="ScratchCard" syncable="YES">
+        <attribute name="discount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isUsed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="scratchCardCode" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="scratchCodes" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="order" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order" inverseName="user" inverseEntity="Order"/>
+        <relationship name="scratchCodes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ScratchCard" inverseName="user" inverseEntity="ScratchCard"/>
+    </entity>
+    <elements>
+        <element name="Meal" positionX="-540" positionY="18" width="128" height="148"/>
+        <element name="Order" positionX="-540" positionY="63" width="128" height="148"/>
+        <element name="ScratchCard" positionX="-540" positionY="45" width="128" height="103"/>
+        <element name="User" positionX="-541.78125" positionY="-10.23828125" width="128" height="133"/>
+    </elements>
+</model>
